@@ -202,7 +202,16 @@ export default function Home() {
             </div>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '10px' }}>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: '5px', 
+            marginTop: '10px',
+            width: '100%',
+            maxWidth: '100%',
+            padding: '0 5px',
+            boxSizing: 'border-box'
+          }}>
             {/* Кнопка "Назад" */}
             <button
               onClick={() => setCurrentImage((prev) => (prev === 0 ? images.length - 1 : prev - 1))}
@@ -211,17 +220,18 @@ export default function Home() {
                 background: '#ff69b4',
                 border: 'none',
                 borderRadius: '50%',
-                width: '50px',
-                height: '50px',
+                width: '40px',
+                height: '40px',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: 'white',
-                fontSize: '24px',
+                fontSize: '18px',
                 fontWeight: 'bold',
-                minWidth: '50px',
-                minHeight: '50px',
+                minWidth: '40px',
+                minHeight: '40px',
+                flexShrink: 0,
               }}
             >
               ‹
@@ -233,12 +243,13 @@ export default function Home() {
               className={styles.thumbnailContainer}
               style={{
                 display: 'flex',
-                gap: '5px',
+                gap: '3px',
                 overflowX: 'auto',
-                maxWidth: 'calc(100vw - 140px)',
+                flex: 1,
                 scrollBehavior: 'smooth',
                 padding: '5px 0',
                 WebkitOverflowScrolling: 'touch',
+                maxWidth: 'calc(100% - 80px)',
               }}
             >
               {images.map((src, index) => (
@@ -249,8 +260,8 @@ export default function Home() {
                   className={styles.thumbnail}
                   onClick={() => setCurrentImage(index)}
                   style={{
-                    width: '50px',
-                    height: '50px',
+                    width: '45px',
+                    height: '45px',
                     objectFit: 'cover',
                     cursor: 'pointer',
                     border: currentImage === index ? '2px solid #ff69b4' : '2px solid transparent',
@@ -269,17 +280,18 @@ export default function Home() {
                 background: '#ff69b4',
                 border: 'none',
                 borderRadius: '50%',
-                width: '50px',
-                height: '50px',
+                width: '40px',
+                height: '40px',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: 'white',
-                fontSize: '24px',
+                fontSize: '18px',
                 fontWeight: 'bold',
-                minWidth: '50px',
-                minHeight: '50px',
+                minWidth: '40px',
+                minHeight: '40px',
+                flexShrink: 0,
               }}
             >
               ›
@@ -462,23 +474,23 @@ export default function Home() {
             
             /* Стили для кнопок карусели на мобильных */
             .carousel-btn {
-              width: 60px !important;
-              height: 60px !important;
-              min-width: 60px !important;
-              min-height: 60px !important;
-              font-size: 28px !important;
+              width: 50px !important;
+              height: 50px !important;
+              min-width: 50px !important;
+              min-height: 50px !important;
+              font-size: 22px !important;
               z-index: 10;
               box-shadow: 0 2px 8px rgba(0,0,0,0.3);
             }
             
             .${styles.thumbnailContainer} {
-              max-width: calc(100vw - 140px) !important;
-              gap: 8px !important;
+              max-width: calc(100vw - 110px) !important;
+              gap: 4px !important;
             }
             
             .${styles.thumbnail} {
-              width: 60px !important;
-              height: 60px !important;
+              width: 50px !important;
+              height: 50px !important;
             }
           }
 
@@ -497,23 +509,23 @@ export default function Home() {
               margin-right: calc(-50vw + 50%);
             }
             
-            /* Еще больше кнопки для маленьких экранов */
+            /* Оптимизация для маленьких экранов */
             .carousel-btn {
-              width: 70px !important;
-              height: 70px !important;
-              min-width: 70px !important;
-              min-height: 70px !important;
-              font-size: 32px !important;
+              width: 45px !important;
+              height: 45px !important;
+              min-width: 45px !important;
+              min-height: 45px !important;
+              font-size: 20px !important;
             }
             
             .${styles.thumbnailContainer} {
-              max-width: calc(100vw - 160px) !important;
-              gap: 6px !important;
+              max-width: calc(100vw - 100px) !important;
+              gap: 2px !important;
             }
             
             .${styles.thumbnail} {
-              width: 55px !important;
-              height: 55px !important;
+              width: 45px !important;
+              height: 45px !important;
             }
           }
         `}</style>
