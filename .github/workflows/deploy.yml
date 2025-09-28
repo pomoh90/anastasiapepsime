@@ -16,9 +16,11 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
+        port: 22
         script: |
           cd /var/www/anastasiapepsime.com
           git pull origin master
-          npm install
+          npm install --production
           npm run build
           pm2 restart anastasiapepsime
+          echo "Deployment completed successfully!"
