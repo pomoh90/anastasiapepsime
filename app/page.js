@@ -1,7 +1,7 @@
 // app/page.js
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import 'aos/dist/aos.css';
@@ -36,6 +36,26 @@ export default function Home() {
   const [hearts, setHearts] = useState([]);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
   const [popupClosed, setPopupClosed] = useState(false);
+  const thumbnailRef = useRef(null);
+
+  // Функция для прокрутки к активной миниатюре
+  const scrollToActiveThumbnail = () => {
+    if (thumbnailRef.current) {
+      const thumbnails = thumbnailRef.current.children;
+      if (thumbnails[currentImage]) {
+        thumbnails[currentImage].scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
+    }
+  };
+
+  // Прокручиваем к активной миниатюре при изменении currentImage
+  useEffect(() => {
+    scrollToActiveThumbnail();
+  }, [currentImage]);
 
   useEffect(() => {
     document.body.classList.toggle('popup-open', !popupClosed);
@@ -165,35 +185,105 @@ export default function Home() {
               />
             ))}
             <Logo />
+            
+            {/* Счетчик фотографий */}
+            <div style={{
+              position: 'absolute',
+              top: '10px',
+              left: '10px',
+              background: 'rgba(0, 0, 0, 0.7)',
+              color: 'white',
+              padding: '5px 10px',
+              borderRadius: '15px',
+              fontSize: '14px',
+              zIndex: 10,
+            }}>
+              {currentImage + 1} / {images.length}
+            </div>
           </div>
 
-          <div
-            className={styles.thumbnailContainer}
-            style={{
-              marginTop: '10px',
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '5px',
-              overflowX: 'auto',
-            }}
-          >
-            {images.map((src, index) => (
-              <img
-                key={`thumb-${index}`}
-                src={src}
-                alt={`Thumbnail ${index}`}
-                className={styles.thumbnail}
-                onClick={() => setCurrentImage(index)}
-                style={{
-                  width: '50px',
-                  height: '50px',
-                  objectFit: 'cover',
-                  cursor: 'pointer',
-                  border: currentImage === index ? '2px solid #ff69b4' : '2px solid transparent',
-                  borderRadius: '5px',
-                }}
-              />
-            ))}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '10px' }}>
+            {/* Кнопка "Назад" */}
+            <button
+              onClick={() => setCurrentImage((prev) => (prev === 0 ? images.length - 1 : prev - 1))}
+              className="carousel-btn"
+              style={{
+                background: '#ff69b4',
+                border: 'none',
+                borderRadius: '50%',
+                width: '50px',
+                height: '50px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'white',
+                fontSize: '24px',
+                fontWeight: 'bold',
+                minWidth: '50px',
+                minHeight: '50px',
+              }}
+            >
+              ‹
+            </button>
+
+            {/* Контейнер миниатюр с горизонтальной прокруткой */}
+            <div
+              ref={thumbnailRef}
+              className={styles.thumbnailContainer}
+              style={{
+                display: 'flex',
+                gap: '5px',
+                overflowX: 'auto',
+                maxWidth: 'calc(100vw - 140px)',
+                scrollBehavior: 'smooth',
+                padding: '5px 0',
+                WebkitOverflowScrolling: 'touch',
+              }}
+            >
+              {images.map((src, index) => (
+                <img
+                  key={`thumb-${index}`}
+                  src={src}
+                  alt={`Thumbnail ${index}`}
+                  className={styles.thumbnail}
+                  onClick={() => setCurrentImage(index)}
+                  style={{
+                    width: '50px',
+                    height: '50px',
+                    objectFit: 'cover',
+                    cursor: 'pointer',
+                    border: currentImage === index ? '2px solid #ff69b4' : '2px solid transparent',
+                    borderRadius: '5px',
+                    flexShrink: 0,
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* Кнопка "Вперед" */}
+            <button
+              onClick={() => setCurrentImage((prev) => (prev === images.length - 1 ? 0 : prev + 1))}
+              className="carousel-btn"
+              style={{
+                background: '#ff69b4',
+                border: 'none',
+                borderRadius: '50%',
+                width: '50px',
+                height: '50px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'white',
+                fontSize: '24px',
+                fontWeight: 'bold',
+                minWidth: '50px',
+                minHeight: '50px',
+              }}
+            >
+              ›
+            </button>
           </div>
         </section>
 
@@ -369,6 +459,27 @@ export default function Home() {
               height: 100%;
               object-fit: cover;
             }
+            
+            /* Стили для кнопок карусели на мобильных */
+            .carousel-btn {
+              width: 60px !important;
+              height: 60px !important;
+              min-width: 60px !important;
+              min-height: 60px !important;
+              font-size: 28px !important;
+              z-index: 10;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            }
+            
+            .${styles.thumbnailContainer} {
+              max-width: calc(100vw - 140px) !important;
+              gap: 8px !important;
+            }
+            
+            .${styles.thumbnail} {
+              width: 60px !important;
+              height: 60px !important;
+            }
           }
 
           @media (min-width: 769px) {
@@ -384,6 +495,25 @@ export default function Home() {
               height: 300px;
               margin-left: calc(-50vw + 50%);
               margin-right: calc(-50vw + 50%);
+            }
+            
+            /* Еще больше кнопки для маленьких экранов */
+            .carousel-btn {
+              width: 70px !important;
+              height: 70px !important;
+              min-width: 70px !important;
+              min-height: 70px !important;
+              font-size: 32px !important;
+            }
+            
+            .${styles.thumbnailContainer} {
+              max-width: calc(100vw - 160px) !important;
+              gap: 6px !important;
+            }
+            
+            .${styles.thumbnail} {
+              width: 55px !important;
+              height: 55px !important;
             }
           }
         `}</style>
