@@ -110,7 +110,7 @@ export default function Home() {
 {popupEnabled === 1 && !popupClosed && <Popup onClose={() => setPopupClosed(true)} />}
       <Head>
         <title>Anastasia - Premium Companion Services in San Francisco</title>
-        <meta name="description" content="Meet Anastasia - Beautiful 31-year-old model from Russia, now based in San Francisco. Premium companion services with elegance and class. Blue-eyed blonde offering luxury companionship experiences." />
+        <meta name="description" content="Meet Anastasia - Beautiful 31-year-old Russian model now based in San Francisco. Premium companion services with elegance and class. Blue-eyed blonde offering luxury companionship experiences. Contact: +1 (646) 551-4679" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="Anastasia, San Francisco escort, premium companion, luxury escort services, Russian model, blue-eyed blonde, high-end companionship, San Francisco" />
         <meta name="author" content="Anastasia" />
@@ -137,6 +137,8 @@ export default function Home() {
               "description": "Premium companion services in San Francisco. Beautiful 31-year-old model from Russia offering luxury companionship experiences.",
               "url": "https://anastasiapepsime.com",
               "image": "https://anastasiapepsime.com/images/1.JPG",
+              "telephone": "+1 (646) 551-4679",
+              "email": "anastasiaSF@outlook.com",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "San Francisco",
