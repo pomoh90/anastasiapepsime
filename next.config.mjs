@@ -4,25 +4,23 @@ const nextConfig = {
   env: {
     PORT: '3035'
   },
-  // Отключаем все оптимизации для совместимости
-  output: 'standalone',
-  experimental: {
-    outputFileTracingRoot: undefined,
-  },
-  // Настройки для статических файлов
-  assetPrefix: '',
+  // Простая конфигурация без оптимизаций
   trailingSlash: false,
   // Отключаем оптимизацию изображений
   images: {
     unoptimized: true
   },
-  // Отключаем минификацию JS
+  // Отключаем минификацию
   swcMinify: false,
   // Отключаем сжатие
   compress: false,
   // Настройки для production
   poweredByHeader: false,
-  generateEtags: false
+  generateEtags: false,
+  // Отключаем статическую оптимизацию
+  experimental: {
+    staticGenerationRetryCount: 0,
+  }
 };
 
 export default nextConfig;

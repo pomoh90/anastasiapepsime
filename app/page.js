@@ -26,9 +26,7 @@ const images = [
   '/images/6.jpg',
   '/images/7.jpg',
   '/images/8.jpg',
-  '/images/9.jpg',
-  '/images/10.jpg',
-  '/images/11.jpg',
+
 ];
 
 export default function Home() {
@@ -111,12 +109,50 @@ export default function Home() {
     <>
 {popupEnabled === 1 && !popupClosed && <Popup onClose={() => setPopupClosed(true)} />}
       <Head>
-        <title>Anastasia</title>
-        <meta name="description" content="Welcome to Anastasia - Your trusted partner for exclusive connections and high-quality companionship services." />
+        <title>Anastasia - Premium Companion Services in San Francisco</title>
+        <meta name="description" content="Meet Anastasia - Beautiful 31-year-old model from Russia, now based in San Francisco. Premium companion services with elegance and class. Blue-eyed blonde offering luxury companionship experiences." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="keywords" content="Anastasia, escort services, luxury, companionship, exclusive connections" />
+        <meta name="keywords" content="Anastasia, San Francisco escort, premium companion, luxury escort services, Russian model, blue-eyed blonde, high-end companionship, San Francisco" />
         <meta name="author" content="Anastasia" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Anastasia - Premium Companion Services in San Francisco" />
+        <meta property="og:description" content="Meet Anastasia - Beautiful 31-year-old model from Russia, now based in San Francisco. Premium companion services with elegance and class." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://anastasiapepsime.com" />
+        <meta property="og:image" content="https://anastasiapepsime.com/images/1.JPG" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Anastasia - Premium Companion Services in San Francisco" />
+        <meta name="twitter:description" content="Meet Anastasia - Beautiful 31-year-old model from Russia, now based in San Francisco." />
+        <meta name="twitter:image" content="https://anastasiapepsime.com/images/1.JPG" />
+        <link rel="canonical" href="https://anastasiapepsime.com" />
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
         <link rel="icon" href="/images/favicon-heart.png" type="image/png" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Anastasia",
+              "description": "Premium companion services in San Francisco. Beautiful 31-year-old model from Russia offering luxury companionship experiences.",
+              "url": "https://anastasiapepsime.com",
+              "image": "https://anastasiapepsime.com/images/1.JPG",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "San Francisco",
+                "addressRegion": "CA",
+                "addressCountry": "US"
+              },
+              "age": 31,
+              "nationality": "Russian",
+              "description": "Blue-eyed blonde model providing premium companion services with elegance and class.",
+              "sameAs": [
+                "https://x.com/anastasiasf",
+                "https://tryst.link/escort/anastasia"
+              ]
+            })
+          }}
+        />
       </Head>
 
       <div
