@@ -114,7 +114,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="Anastasia, San Francisco escort, premium companion, luxury escort services, Russian model, blue-eyed blonde, high-end companionship, San Francisco" />
         <meta name="author" content="Anastasia" />
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow" />
         <meta property="og:title" content="Anastasia - Premium Companion Services in San Francisco" />
         <meta property="og:description" content="Meet Anastasia - Beautiful 31-year-old model from Russia, now based in San Francisco. Premium companion services with elegance and class." />
         <meta property="og:type" content="website" />
@@ -124,7 +125,7 @@ export default function Home() {
         <meta name="twitter:title" content="Anastasia - Premium Companion Services in San Francisco" />
         <meta name="twitter:description" content="Meet Anastasia - Beautiful 31-year-old model from Russia, now based in San Francisco." />
         <meta name="twitter:image" content="https://anastasiapepsime.com/images/1.JPG" />
-        <link rel="canonical" href="https://anastasiapepsime.com" />
+        <link rel="canonical" href="https://anastasiapepsime.com/" />
         <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
         <link rel="icon" href="/images/favicon-heart.png" type="image/png" />
         <script

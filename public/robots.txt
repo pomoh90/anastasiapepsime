@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
+# Canonical domain
+Host: https://anastasiapepsime.com/
+
 # Sitemap
 Sitemap: https://anastasiapepsime.com/sitemap.xml
 
