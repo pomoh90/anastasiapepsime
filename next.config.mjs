@@ -16,11 +16,7 @@ const nextConfig = {
   compress: false,
   // Настройки для production
   poweredByHeader: false,
-  generateEtags: false,
-  // Отключаем статическую оптимизацию
-  experimental: {
-    staticGenerationRetryCount: 0,
-  }
+  generateEtags: false
 };
 
 export default nextConfig;

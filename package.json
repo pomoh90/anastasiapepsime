@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-  "dev": "next dev",
-  "build": "next build",
-  "start": "next start -p 3035",
-  "lint": "next lint",
-  "vercel-build": "next build"
-},
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p 3035",
+    "lint": "next lint",
+    "vercel-build": "next build"
+  },
   "dependencies": {
     "aos": "^2.3.4",
     "git": "^0.1.5",
